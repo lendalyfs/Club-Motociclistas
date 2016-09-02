@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Como se Llame</string>
+    <string name="login_btn_text">Iniciar Sesión</string>
+    <string name="str_usuario">Usuario</string>
+    <string name="str_password">Contraseña</string>
+    <string name="btn_signup">Registrarse</string>
+</resources>
