@@ -14,7 +14,7 @@ $app->get('/login/user={user}&password={password}', function ($request, $respons
     $db = new Login();
     $conn = $db->getLoginErrors($args['user'], $args['password']);
 
-    return $response->write(json_encode($conn));
+    return $response->write($conn);
 });
 /*
 $app->post('/signup/user', function ($request, $response) {

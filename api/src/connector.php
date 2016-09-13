@@ -8,7 +8,7 @@ class Connector {
 	function __construct() {
 		$this->host = "localhost";
 		$this->user = "root";
-		$this->pass = "521/by.rk";
+		$this->pass = "toor";
 		$this->name = "como_se_llame";
 	}
 
