@@ -1,12 +1,13 @@
 <?php
     session_start();
+    include_once 'php/Constants.php';
 	if ((empty($_SESSION['token'])) || ($_SESSION['token'] == "")) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Club motociclista</title>
+		<title><?php echo WEB_NAME; ?></title>
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="keywords" content="">
@@ -15,7 +16,7 @@
 		<link rel="stylesheet" href="css/animate.min.css">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/font-awesome.min.css">
-		<link rel='stylesheet' href='google.css'>
+		<link rel='stylesheet' href='css/google.css'>
 		<link rel="stylesheet" href="css/templatemo-style.css">
 		<link rel="stylesheet" href="css/multi-steep.css">
         <style>
@@ -35,7 +36,7 @@
     	 </div>
 		<!-- end preloader -->
 		<!-- menu -->
-		<nav class="navbar navbar-default navbar-fixed-top templatemo-nav" role="navigation">
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
 					<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -47,8 +48,8 @@
 				</div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right text-uppercase">
-                        <li><a>Aviso de privacidad</a></li>
-                        <li><a>Términos & condiciones</a></li>
+                        <li><a href="privacy.php">Aviso de privacidad</a></li>
+                        <li><a href="tos.php">Términos & condiciones</a></li>
 					</ul>
 				</div>
 			</div>
@@ -143,7 +144,7 @@
 		<footer>
 			<div class="container">
 				<div class="row">
-                    Copyright © 2016 Club motociclista
+                    <?php echo COPYRIGHT . " | " . WEB_NAME; ?>
 				</div>
 			</div>
 		</footer>

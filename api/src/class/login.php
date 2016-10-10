@@ -42,39 +42,38 @@ class Login {
 
 	// To do...
 	// Registra el intento de inicio de sesion
-	function setIntentLogin($user) {
-		$intents = $this->getIntentsLogin($user);
+	function setIntentLogin() {
+		$intents = $this->getIntentsLogin(1);
 		$date = date("Y-m-d H:i:s");
 
+        // Si intents == 0, lo actualiza a 1 y coloca la fecha de inicio
 		if ($intents == 0) {
 			try {
-				$stmt = $this->conn->prepare("UPDATE login_user SET date_start = :date1, intents = 1 WHERE user_id = (SELECT id FROM users WHERE email = :user) ;");
+				$stmt = $this->conn->prepare("UPDATE login_user SET date_start = :date1, intents = 1 WHERE user_id = 1 ;");
 				$stmt->bindValue(":date1", $date, PDO::PARAM_STR );
-				$stmt->bindValue(':user', $user, PDO::PARAM_STR );
 				$stmt->execute();	
 			} catch (PDOException $e) {
-				echo $e->getMessage() . " Vale verga la bida";
+				echo $e->getMessage();
 			}
 		} elseif ($intents == 3) {
-		    if ($this->isLocked($user)) {
+		    // Si intentes == 3, verifica si la cuenta esta bloqueada, si no la bloquea, si esta bloqueada no hace nada
+		    if (!$this->isLocked(1)) {
 		        try {
 		            //  Query para actualizar + fecha de bloqueo
-		            $stmt = $this->conn->prepare("UPDATE login_user SET date_start = :date1, date_end = :date2  WHERE user_id = (SELECT id FROM users WHERE email = :user) ;");
+		            $stmt = $this->conn->prepare("UPDATE login_user SET date_start = :date1, date_end = :date2  WHERE user_id = 1 ;");
 		            $stmt->bindValue(":date1", $date, PDO::PARAM_STR);
 		            $stmt->bindValue(":date2", $this->createDateBlock(), PDO::PARAM_STR);
-		            $stmt->bindValue(':user', $user, PDO::PARAM_STR);
 		            $stmt->execute();
 		        } catch (PDOException $e) {
 		            echo $e->getMessage();
 		        }
             }
 		} else {
-			// Query para actualizar
+			// Actualiza el intents
             $intents++;
             try {
-                $stmt = $this->conn->prepare("UPDATE login_user SET intents = :intents WHERE user_id = (SELECT id FROM users WHERE email = :user) ;");
+                $stmt = $this->conn->prepare("UPDATE login_user SET intents = :intents WHERE user_id = 1 ;");
                 $stmt->bindValue(":intents", $intents, PDO::PARAM_INT);
-                $stmt->bindValue(':user', $user, PDO::PARAM_STR);
                 $stmt->execute();
             } catch  (PDOException $e) {
                 echo $e->getMessage();
@@ -92,41 +91,57 @@ class Login {
 
 	// Devuelve el numero de intentos de inicio de sesion
 	function getIntentsLogin($user) {
-		$result = $this->conn->query("SELECT intents FROM login_user WHERE user_id = (SELECT id from users WHERE email = '" . $user . "');")->fetchAll();
+		$result = $this->conn->query("SELECT intents FROM login_user WHERE user_id = $user;")->fetchAll();
 		return $result[0]["intents"];
 	}
 
 	// Valida el inicio de sesion mostrando errores errores
 	function getLoginErrors($user, $pass) {
 		$this->setUser($user);
-		$this->setPassword($pass);
-        if ($this->getIntentsLogin($user) >= 3) {
+		//$this->setPassword(hash("sha256", $pass));
+        $this->setPassword($pass);
+
+        // Actualiza el numero de intents
+        $this->setIntentLogin();
+
+        if ($this->isLocked(1)) {
             $val = $this->response[6];
         } else {
             $val = ($this->getNumberDataError() == 1) ? $this->getSuccessError() : $this->response[1];
         }
 
+        if ($val == $this->response[2]) {
+            $this->unlockAccount($user);
+        }
+
 		return $val;
 	}
 
+	// Extrae la fecha de bloqueo, si existe, la cuenta esta bloqueada
 	function isLocked($user) {
-	    $result = $this->conn->query("SELECT date_end FROM login_user WHERE user_id = (SELECT id FROM users WHERE email = '" . $user . "');")->fetchAll();
+	    $result = $this->conn->query("SELECT date_end FROM login_user WHERE user_id =  $user ;")->fetchAll();
 	    $blockDate = $result[0]["date_end"];
 
-        if (!$blockDate) {
+        if ($blockDate) {
             return true;
         } else {
             return false;
         }
     }
 
-	// Devuelve true si es que el timpo de bloqueo ya expiro, false si aun no
+	// Devuelve true si es que el timpo de bloqueo ya expiro, false si aun no y procede a desbloquar
 	function getUnlockAccount($user) {
 	    $actualDate = date('Y-m-d H:i:s');
+        $actualDate = strtotime($actualDate);
+
         $result = $this->conn->query("SELECT date_end FROM login_user WHERE user_id = (SELECT id FROM users WHERE email = '" . $user . "');")->fetchAll();
+
         $blockDate = $result[0]["date_end"];
+        $blockDate = strtotime($blockDate);
 
         if ($actualDate >= $blockDate) {
+            // Desbloquea la cuenta
+            $this->unlockAccount($user);
             $status = true;
         } else {
             $status = false;
@@ -191,8 +206,10 @@ class Login {
  * Falta por probar el unlock account
  */
 //$l = new Login();
+// Desbloquea la cuenta
+//$l->unlockAccount("root");
 //echo $l->setIntentLogin(1);
 // Logueado
 //print_r( $l->apiLogin("rot", "123") );
 // Logueado con errores
-//echo $l->getLoginErrors("rot", "23");
+//echo $l->getLoginErrors("rot", "tor");

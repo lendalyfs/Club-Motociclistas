@@ -21,44 +21,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="login.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/class/login.php">
+      <file leaf-file-name="recover.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/class/recover.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="190" column="33" selection-start-line="190" selection-start-column="33" selection-end-line="190" selection-end-column="33" />
+            <state relative-caret-position="90">
+              <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
               <folding>
-                <element signature="e#181#659#0#PHP" expanded="false" />
-                <element signature="e#693#830#0#PHP" expanded="false" />
-                <element signature="e#874#1074#0#PHP" expanded="false" />
-                <element signature="e#1134#2809#0#PHP" expanded="false" />
-                <element signature="e#2841#3042#0#PHP" expanded="false" />
-                <element signature="e#3376#3707#0#PHP" expanded="false" />
-                <element signature="e#3710#4042#0#PHP" expanded="false" />
-                <element signature="e#5209#5480#0#PHP" expanded="false" />
-                <element signature="e#5505#5665#0#PHP" expanded="false" />
-                <element signature="e#5693#5845#0#PHP" expanded="false" />
-                <element signature="e#5873#5973#0#PHP" expanded="false" />
-                <element signature="e#5999#6050#0#PHP" expanded="false" />
-                <element signature="e#6077#6132#0#PHP" expanded="false" />
-                <marker date="1473718366784" expanded="true" signature="945:1030" ph="SELECT * FRO... users" />
-                <marker date="1473718366784" expanded="true" signature="1309:1422" ph="UPDATE login... " />
-                <marker date="1473718366784" expanded="true" signature="1381:1421" ph="SELECT id FR... users" />
-                <marker date="1473718366784" expanded="true" signature="1833:1953" ph="UPDATE login... " />
-                <marker date="1473718366784" expanded="true" signature="1912:1952" ph="SELECT id FR... users" />
-                <marker date="1473718366784" expanded="true" signature="2432:2531" ph="UPDATE login... " />
-                <marker date="1473718366784" expanded="true" signature="2490:2530" ph="SELECT id FR... users" />
-                <marker date="1473718366784" expanded="false" signature="3133:3315" ph="..." />
-                <marker date="1473718366784" expanded="true" signature="3166:3265" ph="SELECT inten... login_user" />
-                <marker date="1473718366784" expanded="true" signature="3214:3264" ph="SELECT id fr... users" />
-                <marker date="1473718366784" expanded="true" signature="3772:3872" ph="SELECT date_... login_user" />
-                <marker date="1473718366784" expanded="true" signature="3821:3871" ph="SELECT id FR... users" />
-                <marker date="1473718366784" expanded="true" signature="4233:4333" ph="SELECT date_... login_user" />
-                <marker date="1473718366784" expanded="true" signature="4282:4332" ph="SELECT id FR... users" />
-                <marker date="1473718366784" expanded="true" signature="4685:4807" ph="UPDATE login... " />
-                <marker date="1473718366784" expanded="true" signature="4685:4822" ph="UPDATE login... " />
-                <marker date="1473718366784" expanded="true" signature="4773:4807" ph="SELECT id FR... users" />
-                <marker date="1473718366784" expanded="true" signature="4943:5142" ph="SELECT itent... login_u" />
-                <marker date="1473718366784" expanded="true" signature="5273:5369" ph="SELECT * FRO... users" />
+                <marker date="1472276967789" expanded="true" signature="256:309" ph="UPDATE users... " />
+                <marker date="1472276967789" expanded="true" signature="777:833" ph="UPDATE login... " />
               </folding>
             </state>
           </provider>
@@ -82,9 +52,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP 5.6" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1" />
-    <option name="width" value="1368" />
-    <option name="height" value="739" />
+    <option name="width" value="1366" />
+    <option name="height" value="738" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -111,6 +80,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -144,27 +114,8 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="class" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -195,6 +146,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -239,34 +196,46 @@
       <workItem from="1473464144630" duration="1728000" />
       <workItem from="1473475488379" duration="27000" />
       <workItem from="1473706149068" duration="8062000" />
+      <workItem from="1474164093063" duration="1103000" />
+      <workItem from="1474195765731" duration="6804000" />
+      <workItem from="1474242470393" duration="269000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9817000" />
+    <option name="totallyTimeSpent" value="17993000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="0" width="1368" height="739" extended-state="6" />
-    <editor active="false" />
+    <frame x="0" y="0" width="1366" height="738" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25755286" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32952693" sideWeight="0.49697885" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26928896" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.5030211" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32952693" sideWeight="0.49697885" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -285,51 +254,21 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/class/login.php</url>
-          <line>126</line>
+          <line>138</line>
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/class/login.php">
+    <entry file="file://$PROJECT_DIR$/src/class/recover.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#181#659#0#PHP" expanded="false" />
-            <element signature="e#693#830#0#PHP" expanded="false" />
-            <element signature="e#874#1074#0#PHP" expanded="false" />
-            <element signature="e#1134#2809#0#PHP" expanded="false" />
-            <element signature="e#2841#3042#0#PHP" expanded="false" />
-            <element signature="e#3376#3707#0#PHP" expanded="false" />
-            <element signature="e#3710#4042#0#PHP" expanded="false" />
-            <element signature="e#5209#5480#0#PHP" expanded="false" />
-            <element signature="e#5505#5665#0#PHP" expanded="false" />
-            <element signature="e#5693#5845#0#PHP" expanded="false" />
-            <element signature="e#5873#5973#0#PHP" expanded="false" />
-            <element signature="e#5999#6050#0#PHP" expanded="false" />
-            <element signature="e#6077#6132#0#PHP" expanded="false" />
-            <marker date="1473718366784" expanded="true" signature="945:1030" ph="SELECT * FRO... users" />
-            <marker date="1473718366784" expanded="true" signature="1309:1422" ph="UPDATE login... " />
-            <marker date="1473718366784" expanded="true" signature="1381:1421" ph="SELECT id FR... users" />
-            <marker date="1473718366784" expanded="true" signature="1833:1953" ph="UPDATE login... " />
-            <marker date="1473718366784" expanded="true" signature="1912:1952" ph="SELECT id FR... users" />
-            <marker date="1473718366784" expanded="true" signature="2432:2531" ph="UPDATE login... " />
-            <marker date="1473718366784" expanded="true" signature="2490:2530" ph="SELECT id FR... users" />
-            <marker date="1473718366784" expanded="false" signature="3133:3315" ph="..." />
-            <marker date="1473718366784" expanded="true" signature="3166:3265" ph="SELECT inten... login_user" />
-            <marker date="1473718366784" expanded="true" signature="3214:3264" ph="SELECT id fr... users" />
-            <marker date="1473718366784" expanded="true" signature="3772:3872" ph="SELECT date_... login_user" />
-            <marker date="1473718366784" expanded="true" signature="3821:3871" ph="SELECT id FR... users" />
-            <marker date="1473718366784" expanded="true" signature="4233:4333" ph="SELECT date_... login_user" />
-            <marker date="1473718366784" expanded="true" signature="4282:4332" ph="SELECT id FR... users" />
-            <marker date="1473718366784" expanded="true" signature="4685:4807" ph="UPDATE login... " />
-            <marker date="1473718366784" expanded="true" signature="4685:4822" ph="UPDATE login... " />
-            <marker date="1473718366784" expanded="true" signature="4773:4807" ph="SELECT id FR... users" />
-            <marker date="1473718366784" expanded="true" signature="4943:5142" ph="SELECT itent... login_u" />
-            <marker date="1473718366784" expanded="true" signature="5273:5369" ph="SELECT * FRO... users" />
+            <marker date="1472276967789" expanded="true" signature="256:309" ph="UPDATE users... " />
+            <marker date="1472276967789" expanded="true" signature="777:833" ph="UPDATE login... " />
           </folding>
         </state>
       </provider>
@@ -342,35 +281,64 @@
             <element signature="e#181#659#0#PHP" expanded="false" />
             <element signature="e#693#830#0#PHP" expanded="false" />
             <element signature="e#874#1074#0#PHP" expanded="false" />
-            <element signature="e#1134#2809#0#PHP" expanded="false" />
-            <element signature="e#2841#3042#0#PHP" expanded="false" />
-            <element signature="e#3376#3707#0#PHP" expanded="false" />
-            <element signature="e#3710#4042#0#PHP" expanded="false" />
-            <element signature="e#5209#5480#0#PHP" expanded="false" />
-            <element signature="e#5505#5665#0#PHP" expanded="false" />
-            <element signature="e#5693#5845#0#PHP" expanded="false" />
-            <element signature="e#5873#5973#0#PHP" expanded="false" />
-            <element signature="e#5999#6050#0#PHP" expanded="false" />
-            <element signature="e#6077#6132#0#PHP" expanded="false" />
-            <marker date="1473718366784" expanded="true" signature="945:1030" ph="SELECT * FRO... users" />
-            <marker date="1473718366784" expanded="true" signature="1309:1422" ph="UPDATE login... " />
-            <marker date="1473718366784" expanded="true" signature="1381:1421" ph="SELECT id FR... users" />
-            <marker date="1473718366784" expanded="true" signature="1833:1953" ph="UPDATE login... " />
-            <marker date="1473718366784" expanded="true" signature="1912:1952" ph="SELECT id FR... users" />
-            <marker date="1473718366784" expanded="true" signature="2432:2531" ph="UPDATE login... " />
-            <marker date="1473718366784" expanded="true" signature="2490:2530" ph="SELECT id FR... users" />
-            <marker date="1473718366784" expanded="false" signature="3133:3315" ph="..." />
-            <marker date="1473718366784" expanded="true" signature="3166:3265" ph="SELECT inten... login_user" />
-            <marker date="1473718366784" expanded="true" signature="3214:3264" ph="SELECT id fr... users" />
-            <marker date="1473718366784" expanded="true" signature="3772:3872" ph="SELECT date_... login_user" />
-            <marker date="1473718366784" expanded="true" signature="3821:3871" ph="SELECT id FR... users" />
-            <marker date="1473718366784" expanded="true" signature="4233:4333" ph="SELECT date_... login_user" />
-            <marker date="1473718366784" expanded="true" signature="4282:4332" ph="SELECT id FR... users" />
-            <marker date="1473718366784" expanded="true" signature="4685:4807" ph="UPDATE login... " />
-            <marker date="1473718366784" expanded="true" signature="4685:4822" ph="UPDATE login... " />
-            <marker date="1473718366784" expanded="true" signature="4773:4807" ph="SELECT id FR... users" />
-            <marker date="1473718366784" expanded="true" signature="4943:5142" ph="SELECT itent... login_u" />
-            <marker date="1473718366784" expanded="true" signature="5273:5369" ph="SELECT * FRO... users" />
+            <element signature="e#2683#2884#0#PHP" expanded="false" />
+            <element signature="e#4168#4768#0#PHP" expanded="false" />
+            <element signature="e#4814#5160#0#PHP" expanded="false" />
+            <element signature="e#6090#6190#0#PHP" expanded="false" />
+            <element signature="e#6216#6267#0#PHP" expanded="false" />
+            <element signature="e#6294#6349#0#PHP" expanded="false" />
+            <marker date="1474201398377" expanded="true" signature="945:1030" ph="SELECT * FRO... users" />
+            <marker date="1474201398377" expanded="true" signature="1373:1444" ph="UPDATE login... " />
+            <marker date="1474201398377" expanded="true" signature="1373:1445" ph="UPDATE login... " />
+            <marker date="1474201398377" expanded="true" signature="1888:1966" ph="UPDATE login... " />
+            <marker date="1474201398377" expanded="true" signature="1888:1967" ph="UPDATE login... " />
+            <marker date="1474201398377" expanded="true" signature="2381:2438" ph="UPDATE login... " />
+            <marker date="1474201398377" expanded="true" signature="2381:2439" ph="UPDATE login... " />
+            <marker date="1474201398377" expanded="true" signature="3008:3055" ph="SELECT inten... login_user" />
+            <marker date="1474201398377" expanded="true" signature="3008:3056" ph="SELECT inten... login_user" />
+            <marker date="1474201398377" expanded="true" signature="3843:3897" ph="SELECT date_... login_user" />
+            <marker date="1474201398377" expanded="true" signature="3891:3897" ph="SELECT id FR... users" />
+            <marker date="1474201398377" expanded="true" signature="4328:4428" ph="SELECT date_... login_user" />
+            <marker date="1474201398377" expanded="true" signature="4377:4427" ph="SELECT id FR... users" />
+            <marker date="1474201398377" expanded="true" signature="4902:5024" ph="UPDATE login... " />
+            <marker date="1474201398377" expanded="true" signature="4902:5039" ph="UPDATE login... " />
+            <marker date="1474201398377" expanded="true" signature="4990:5024" ph="SELECT id FR... users" />
+            <marker date="1474201398377" expanded="true" signature="5490:5586" ph="SELECT * FRO... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/class/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#181#659#0#PHP" expanded="false" />
+            <element signature="e#693#830#0#PHP" expanded="false" />
+            <element signature="e#874#1074#0#PHP" expanded="false" />
+            <element signature="e#2683#2884#0#PHP" expanded="false" />
+            <element signature="e#4168#4768#0#PHP" expanded="false" />
+            <element signature="e#4814#5160#0#PHP" expanded="false" />
+            <element signature="e#6090#6190#0#PHP" expanded="false" />
+            <element signature="e#6216#6267#0#PHP" expanded="false" />
+            <element signature="e#6294#6349#0#PHP" expanded="false" />
+            <marker date="1474201398377" expanded="true" signature="945:1030" ph="SELECT * FRO... users" />
+            <marker date="1474201398377" expanded="true" signature="1373:1444" ph="UPDATE login... " />
+            <marker date="1474201398377" expanded="true" signature="1373:1445" ph="UPDATE login... " />
+            <marker date="1474201398377" expanded="true" signature="1888:1966" ph="UPDATE login... " />
+            <marker date="1474201398377" expanded="true" signature="1888:1967" ph="UPDATE login... " />
+            <marker date="1474201398377" expanded="true" signature="2381:2438" ph="UPDATE login... " />
+            <marker date="1474201398377" expanded="true" signature="2381:2439" ph="UPDATE login... " />
+            <marker date="1474201398377" expanded="true" signature="3008:3055" ph="SELECT inten... login_user" />
+            <marker date="1474201398377" expanded="true" signature="3008:3056" ph="SELECT inten... login_user" />
+            <marker date="1474201398377" expanded="true" signature="3843:3897" ph="SELECT date_... login_user" />
+            <marker date="1474201398377" expanded="true" signature="3891:3897" ph="SELECT id FR... users" />
+            <marker date="1474201398377" expanded="true" signature="4328:4428" ph="SELECT date_... login_user" />
+            <marker date="1474201398377" expanded="true" signature="4377:4427" ph="SELECT id FR... users" />
+            <marker date="1474201398377" expanded="true" signature="4902:5024" ph="UPDATE login... " />
+            <marker date="1474201398377" expanded="true" signature="4902:5039" ph="UPDATE login... " />
+            <marker date="1474201398377" expanded="true" signature="4990:5024" ph="SELECT id FR... users" />
+            <marker date="1474201398377" expanded="true" signature="5490:5586" ph="SELECT * FRO... users" />
           </folding>
         </state>
       </provider>
@@ -385,11 +353,12 @@
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="-239.0" y="-36.5" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="-239.0" y="-36.0" />
           <SelectedNodes>
             <node>\Login</node>
           </SelectedNodes>
           <Categories />
+          <SCOPE>All</SCOPE>
           <VISIBILITY>private</VISIBILITY>
         </state>
       </provider>
@@ -404,41 +373,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/class/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="190" column="33" selection-start-line="190" selection-start-column="33" selection-end-line="190" selection-end-column="33" />
+        <state relative-caret-position="-898">
+          <caret line="107" column="38" selection-start-line="107" selection-start-column="38" selection-end-line="107" selection-end-column="38" />
           <folding>
             <element signature="e#181#659#0#PHP" expanded="false" />
             <element signature="e#693#830#0#PHP" expanded="false" />
             <element signature="e#874#1074#0#PHP" expanded="false" />
-            <element signature="e#1134#2809#0#PHP" expanded="false" />
-            <element signature="e#2841#3042#0#PHP" expanded="false" />
-            <element signature="e#3376#3707#0#PHP" expanded="false" />
-            <element signature="e#3710#4042#0#PHP" expanded="false" />
-            <element signature="e#5209#5480#0#PHP" expanded="false" />
-            <element signature="e#5505#5665#0#PHP" expanded="false" />
-            <element signature="e#5693#5845#0#PHP" expanded="false" />
-            <element signature="e#5873#5973#0#PHP" expanded="false" />
-            <element signature="e#5999#6050#0#PHP" expanded="false" />
-            <element signature="e#6077#6132#0#PHP" expanded="false" />
-            <marker date="1473718366784" expanded="true" signature="945:1030" ph="SELECT * FRO... users" />
-            <marker date="1473718366784" expanded="true" signature="1309:1422" ph="UPDATE login... " />
-            <marker date="1473718366784" expanded="true" signature="1381:1421" ph="SELECT id FR... users" />
-            <marker date="1473718366784" expanded="true" signature="1833:1953" ph="UPDATE login... " />
-            <marker date="1473718366784" expanded="true" signature="1912:1952" ph="SELECT id FR... users" />
-            <marker date="1473718366784" expanded="true" signature="2432:2531" ph="UPDATE login... " />
-            <marker date="1473718366784" expanded="true" signature="2490:2530" ph="SELECT id FR... users" />
-            <marker date="1473718366784" expanded="false" signature="3133:3315" ph="..." />
-            <marker date="1473718366784" expanded="true" signature="3166:3265" ph="SELECT inten... login_user" />
-            <marker date="1473718366784" expanded="true" signature="3214:3264" ph="SELECT id fr... users" />
-            <marker date="1473718366784" expanded="true" signature="3772:3872" ph="SELECT date_... login_user" />
-            <marker date="1473718366784" expanded="true" signature="3821:3871" ph="SELECT id FR... users" />
-            <marker date="1473718366784" expanded="true" signature="4233:4333" ph="SELECT date_... login_user" />
-            <marker date="1473718366784" expanded="true" signature="4282:4332" ph="SELECT id FR... users" />
-            <marker date="1473718366784" expanded="true" signature="4685:4807" ph="UPDATE login... " />
-            <marker date="1473718366784" expanded="true" signature="4685:4822" ph="UPDATE login... " />
-            <marker date="1473718366784" expanded="true" signature="4773:4807" ph="SELECT id FR... users" />
-            <marker date="1473718366784" expanded="true" signature="4943:5142" ph="SELECT itent... login_u" />
-            <marker date="1473718366784" expanded="true" signature="5273:5369" ph="SELECT * FRO... users" />
+            <element signature="e#2683#2884#0#PHP" expanded="false" />
+            <element signature="e#4168#4768#0#PHP" expanded="false" />
+            <element signature="e#4814#5160#0#PHP" expanded="false" />
+            <element signature="e#6090#6190#0#PHP" expanded="false" />
+            <element signature="e#6216#6267#0#PHP" expanded="false" />
+            <element signature="e#6294#6349#0#PHP" expanded="false" />
+            <marker date="1474201398377" expanded="true" signature="945:1030" ph="SELECT * FRO... users" />
+            <marker date="1474201398377" expanded="true" signature="1373:1444" ph="UPDATE login... " />
+            <marker date="1474201398377" expanded="true" signature="1373:1445" ph="UPDATE login... " />
+            <marker date="1474201398377" expanded="true" signature="1888:1966" ph="UPDATE login... " />
+            <marker date="1474201398377" expanded="true" signature="1888:1967" ph="UPDATE login... " />
+            <marker date="1474201398377" expanded="true" signature="2381:2438" ph="UPDATE login... " />
+            <marker date="1474201398377" expanded="true" signature="2381:2439" ph="UPDATE login... " />
+            <marker date="1474201398377" expanded="true" signature="3008:3055" ph="SELECT inten... login_user" />
+            <marker date="1474201398377" expanded="true" signature="3008:3056" ph="SELECT inten... login_user" />
+            <marker date="1474201398377" expanded="true" signature="3843:3897" ph="SELECT date_... login_user" />
+            <marker date="1474201398377" expanded="true" signature="3891:3897" ph="SELECT id FR... users" />
+            <marker date="1474201398377" expanded="true" signature="4328:4428" ph="SELECT date_... login_user" />
+            <marker date="1474201398377" expanded="true" signature="4377:4427" ph="SELECT id FR... users" />
+            <marker date="1474201398377" expanded="true" signature="4902:5024" ph="UPDATE login... " />
+            <marker date="1474201398377" expanded="true" signature="4902:5039" ph="UPDATE login... " />
+            <marker date="1474201398377" expanded="true" signature="4990:5024" ph="SELECT id FR... users" />
+            <marker date="1474201398377" expanded="true" signature="5490:5586" ph="SELECT * FRO... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/class/recover.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+          <folding>
+            <marker date="1472276967789" expanded="true" signature="256:309" ph="UPDATE users... " />
+            <marker date="1472276967789" expanded="true" signature="777:833" ph="UPDATE login... " />
           </folding>
         </state>
       </provider>

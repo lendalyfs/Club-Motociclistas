@@ -1,16 +1,19 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta content="IE=edge" http-equiv="X-UA-Compatible">
 	<meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
-	<title>Ola k ase?</title>
+	<title>Modelos y pruebas de software</title>
 
 	<!-- css -->
 	<link href="css/base.min.css" rel="stylesheet">
 	<link href="css/project.min.css" rel="stylesheet">
 	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-	<link href="css/bootstrap-theme.min.css" rel="stylesheet" media="screen"> 
+	<link href="css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
 
 	<!-- scripts -->
 	<script type="text/javascript" src="js/jquery-1.11.3-jquery.min.js"></script>
@@ -70,7 +73,7 @@
 							</div>
 						</div>
 						<div class="clearfix">
-							<p class="margin-no-top pull-left"><a class="btn btn-flat btn-brand waves-attach" href="javascript:void(0)">Recuperar contraseña</a></p>
+							<p class="margin-no-top pull-left"><a class="btn btn-flat btn-brand waves-attach" href="recover.php">Recuperar contraseña</a></p>
 							<p class="margin-no-top pull-right"><a class="btn btn-flat btn-brand waves-attach" href="javascript:void(0)">¿Necesitas ayuda?</a></p>
 						</div>
 					</section>
@@ -107,7 +110,7 @@
 					},
 					ui_login_username: "Introduce tu nombre de Usuario",
 				},
-				submitHandler: submitForm 
+				submitHandler: submitForm
 			});
 
 			function submitForm() {
@@ -126,8 +129,7 @@
 								$("#error").html('<div class="alert alert-success"> <img src="images/btn-ajax-loader.gif" /> &nbsp; Bienvenid@</div>');
 								$("#btn-login").html('&nbsp; Entrando...');
 							});
-							//$("#btn-login").html('&nbsp; Entrando...');
-							//setTimeout(' window.location.href = "home.php"; ',4000);
+							setTimeout(' window.location.href = "panel.php"; ',4000);
 						}
 						else {
 							$("#error").fadeIn(1000, function() {

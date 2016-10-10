@@ -23,21 +23,32 @@ function updateNumberOfDays(){
     }
 }
 
-function daysInMonth(month, year) {
-    return new Date(year, month, 0).getDate();
+// Full date
+$(function() {
+    for (i = new Date().getFullYear(); i > 1909; i--){
+        $('#full-years').append($('<option />').val(i).html(i));
+    }
+    for (i = 1; i < 13; i++){
+        $('#full-months').append($('<option />').val(i).html(i));
+    }
+    updateNumberOfDaysFull();
+
+    $('#full-years, #full-months').change(function(){
+        updateNumberOfDaysFull();
+    });
+});
+
+function updateNumberOfDaysFull(){
+    $('#full-days').html('');
+    month = $('#full-months').val();
+    year = $('#full-years').val();
+    days = daysInMonth(month, year);
+
+    for(i=1; i < days+1 ; i++){
+        $('#full-days').append($('<option />').val(i).html(i));
+    }
 }
 
-var myIndex = 0;
-carousel();
-
-function carousel() {
-    var i;
-    var x = document.getElementsByClassName("mySlides");
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-    }
-    myIndex++;
-    if (myIndex > x.length) {myIndex = 1}
-    x[myIndex-1].style.display = "block";
-    setTimeout(carousel, 9000);
+function daysInMonth(month, year) {
+    return new Date(year, month, 0).getDate();
 }

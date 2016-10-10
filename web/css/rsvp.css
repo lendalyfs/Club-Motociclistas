@@ -1,0 +1,138 @@
+.switch {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin-bottom: 15px;
+    width: 120px;
+    height: 40px;
+    background: #E6E6E6;
+    font-size: 16px;
+    font-family: Arial;
+    cursor: pointer;
+}
+.switch:before {
+    position: absolute;
+    left: 15px;
+    z-index: 1;
+    display: block;
+    color: #fff;
+    content: 'No';
+    line-height: 40px;
+    transition: color 0.4s ease;
+}
+.switch:after {
+    position: absolute;
+    right: 15px;
+    z-index: 1;
+    display: block;
+    color: #1A1A1A;
+    content: 'Si';
+    line-height: 40px;
+    transition: color 0.4s ease;
+}
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 40px;
+    background: #990000;
+    transition: left 0.4s ease, background 0s ease;
+}
+.slide:before {
+    position: absolute;
+    top: -7px;
+    left: -35px;
+    display: block;
+    border: 37px solid transparent;
+    border-right: 0px solid #990000;
+    content: '';
+    transition: border-width 0.4s ease, left 0.4s ease;
+}
+.slide:after {
+    position: absolute;
+    top: -7px;
+    right: -65px;
+    display: block;
+    border: 37px solid transparent;
+    border-left: 30px solid #990000;
+    content: '';
+    transition: border-width 0.4s ease, right 0.4s ease;
+}
+input[type=checkbox] {
+    display: none;
+}
+input[type=checkbox]:checked + .switch:before {
+    color: #1A1A1A;
+}
+input[type=checkbox]:checked + .switch:after {
+    color: #fff;
+}
+input[type=checkbox]:checked + .switch .slide {
+    left: 70px;
+    background: #5AA02C;
+}
+input[type=checkbox]:checked + .switch .slide:before {
+    left: -65px;
+    border-right-width: 30px;
+    border-right-color: #5AA02C;
+}
+input[type=checkbox]:checked + .switch .slide:after {
+    right: -35px;
+    border-left-width: 0;
+    border-left-color: #5AA02C;
+}
+#calendar {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.calendar .event {
+    color: #333;
+    display: block;
+    padding: 0.1em;
+    transition: all 0.25s ease;
+    margin-bottom: 0.5em;
+}
+.calendar .event:hover {
+    background: #d5d5d5;
+    text-decoration: none;
+    color: black;
+}
+.calendar .event_icon {
+    width: 3em;
+    float: left;
+    margin-right: 0.75em;
+}
+.calendar .event_month, .calendar .event_day {
+    text-align: center;
+}
+.calendar .event_month {
+    padding: 0.1em;
+    margin-bottom: 0.15em;
+    background: #C00000;
+    font-size: 0.75em;
+    color: white;
+    border-top-left-radius: 0.3em;
+    border-top-right-radius: 0.3em;
+}
+.calendar .event_day {
+    border: 1px solid #999;
+    background: white;
+    color: black;
+    font-size: 1.25em;
+    font-weight: bold;
+    border-bottom-left-radius: 0.1em;
+    border-bottom-right-radius: 0.1em;
+}
+.calendar .event_title {
+    font-size: 1.1em;
+    height: 3em;
+    display: table-cell;
+    vertical-align: middle;
+}
+.calendar .btn {
+    margin-top: 0.5em;
+    width: 100%;
+    font-size: 1.5em;
+}
