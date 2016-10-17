@@ -99,6 +99,11 @@ if (isset($_SESSION["token"]) && isset($_SESSION["ytrfvbnjjhgfgb"]) ) {
 				});
 				setTimeout(' window.location.href = "recover.php"; ', 4000);
 			}
+			else if (response.indexOf('Descargar archivo') !== -1) {
+				$("#error").fadeIn(1000, function () {
+					$("#error").html('<div class="alert alert-success"> <img src="images/btn-ajax-loader.gif" /> &nbsp;  ' + response + '</div>');
+				});
+			}
 			else {
 				$("#error").fadeIn(1000, function () {
 					$("#error").html('<div class="alert alert-danger"> &nbsp; ' + response + '</div>');

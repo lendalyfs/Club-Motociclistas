@@ -4,12 +4,22 @@ class Connector {
 	protected $user;
 	protected $pass;
 	protected $name;
-	
+
 	function __construct() {
+		
+		// Production
 		$this->host = "localhost";
 		$this->user = "clubdem1_root";
 		$this->pass = "521/by.rk";
 		$this->name = "clubdem1_modelos";
+
+		// Tessting
+		/*
+		$this->host = "localhost";
+		$this->user = "root";
+		$this->pass = "toor";
+		$this->name = "como_se_llame";
+		*/
 	}
 
 	// Database connection

@@ -33,7 +33,10 @@ class Validate {
 	}
 }
 
+// Production
 $uploads_dir = '/home/clubdem1/public_html/modelos/uploads';
+// Testing
+//$uploads_dir = '/home/rk521/Como se llame/modelos/uploads';
 if ( strstr($_FILES['fileKey']['type'], 'image/') ) {
 	$tmp_name = $_FILES["fileKey"]["tmp_name"];
 	$name = $_FILES["fileKey"]["name"];

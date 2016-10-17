@@ -32,22 +32,35 @@ class Restore
         $this->setPassword($pass);
         $this->setPassword2($pass2);
 
-        if ($this->getPassword() === $this->getPassword2()) {
-            try {
-                $stmt = $this->conn->prepare("UPDATE users SET password = :password WHERE id = 1 ;");
-                $stmt->bindValue(":date1", $this->getPassword(), PDO::PARAM_STR );
+        if ($this->specialChars()) {
+          if ($this->getPassword() === $this->getPassword2()) {
+              try {
+                  $stmt = $this->conn->prepare("UPDATE users SET password = :password WHERE id = 1 ;");
+                  $stmt->bindValue(":password", $this->getPassword(), PDO::PARAM_STR );
 
-                if ($stmt->execute()) {
-                    return "ok";
-                } else {
-                    return "Ocurrio un error al actualizar";
-                }
-            } catch (PDOException $e) {
-                return $e->getMessage();
-            }
+                  if ($stmt->execute()) {
+                      return "ok";
+                  } else {
+                      return "Ocurrio un error al actualizar";
+                  }
+              } catch (PDOException $e) {
+                  return $e->getMessage();
+              }
+          } else {
+              return "Las contraseñas no coinciden";
+          }
         } else {
-            return "Las contraseñas no coinciden";
+          return "La contraseña solo puede contener numeros y letras";
         }
+    }
+
+    public function specialChars() {
+      $pattern = "^[a-zA-Z0-9]*$";
+      if (!preg_match($pattern, $this->getPassword())) {
+       return false;
+      } else {
+        return true;
+      }
     }
 
     /**
@@ -92,7 +105,7 @@ if (isset($_POST['btn-login'])) {
         $password2 = hash('sha256', $password2);
 
         $l = new Restore();
-        echo $l->restore($user, $password);
+        echo $l->restore($password, $password2);
 
     } else {
         if (empty($_POST['ui_login_password'])) {

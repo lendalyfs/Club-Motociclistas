@@ -20,13 +20,25 @@ class Key
         $fp = fopen($file, "wb");
         fwrite($fp, $orig_contents . "key:" . $this->getMasterKey());
         fclose($fp);
-
-        return "ok";
+        return "<a href='class/make.php?id=". $this->getFile() ."'>Descargar archivo</a>";
     }
 
     function download_file()
     {
-        //forza la descarga del archivo y lo elimina
+      $mime = ($mime = getimagesize($this->getFile())) ? $mime['mime'] : $mime;
+      $size = filesize($this->getFile());
+      $fp = fopen($this->getFile(), "rb");
+      header('Pragma: public'); 	// required
+      header('Expires: 0');		// no cache
+      header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+      header('Last-Modified: '.gmdate ('D, d M Y H:i:s', filemtime ($this->getFile())).' GMT');
+      header('Cache-Control: private',false);
+      header('Content-Type: '.$mime);
+      header('Content-Disposition: attachment; filename="'.basename($this->getFile()).'"');
+      header('Content-Transfer-Encoding: binary');
+      header('Content-Length: '.filesize($this->getFile()));	// provide file size
+      header('Connection: close');
+      readfile($this->getFile());
     }
 
     /**
@@ -65,7 +77,16 @@ class Key
 
 }
 
+if (isset($_GET['id'])) {
+  $download = new Key();
+  $download->setFile($_GET['id']);
+  $download->download_file();
+}
+
+// Production
 $uploads_dir = '/home/clubdem1/public_html/modelos/uploads';
+// Testing
+//$uploads_dir = '/home/rk521/Como se llame/modelos/uploads';
 if (strstr($_FILES['fileKey']['type'], 'image/')) {
     $tmp_name = $_FILES["fileKey"]["tmp_name"];
     $name = $_FILES["fileKey"]["name"];
