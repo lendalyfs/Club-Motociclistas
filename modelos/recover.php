@@ -18,7 +18,7 @@
     <script type="text/javascript" src="js/validation.min.js"></script>
     <!-- ... -->
 </head>
-<body class="page-brand">
+<body class="page-brand" onunload="javascript:logout()">
 <header class="header header-brand ui-header">
     <span class="header-logo">Recuperar Contraseña</span>
 </header>
@@ -86,6 +86,11 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/project.min.js"></script>
 <script src="js/dropzone.js"></script>
+<script type="text/javascript">
+function logout() {
+  alert('Saliendo');
+}
+</script>
 <script type="text/javascript">
     $(document).ready(function () {
         Dropzone.autoDiscover = false;

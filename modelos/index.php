@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (isset($_SESSION["token"]) && isset($_SESSION["ytrfvbnjjhgfgb"]) ) {
+	header("Location: panel.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +23,7 @@ session_start();
 	<script type="text/javascript" src="js/validation.min.js"></script>
 	<!-- ... -->
 </head>
-<body class="page-brand">
+<body class="page-brand" onunload="javascript:logout()">
 	<header class="header header-brand ui-header">
 		<span class="header-logo">Modelos y pruebas de software</span>
 	</header>
@@ -91,6 +94,11 @@ session_start();
 	<script src="js/base.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/project.min.js"></script>
+	<script type="text/javascript">
+	function logout() {
+		alert('Saliendo');
+	}
+	</script>
 	<script type="text/javascript">
 		$('document').ready(function() {
 			/* validation */

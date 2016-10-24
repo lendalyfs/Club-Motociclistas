@@ -82,8 +82,8 @@ if (isset($_SESSION["token"]) && isset($_SESSION["ytrfvbnjjhgfgb"]) ) {
         <p>Creative Commons</p>
     </div>
 </footer>
-
 <!-- js -->
+<script src="assets/js/session.js"></script>
 <script src="js/base.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/project.min.js"></script>

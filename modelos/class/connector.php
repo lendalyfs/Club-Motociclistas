@@ -6,6 +6,7 @@ class Connector {
 	protected $name;
 
 	function __construct() {
+
 		
 		// Production
 		$this->host = "localhost";
