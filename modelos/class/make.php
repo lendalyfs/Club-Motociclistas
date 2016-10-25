@@ -1,9 +1,11 @@
 <?php
+include 'login.php';
 
 class Key
 {
     private $file;
     protected $master_key;
+    protected $master_key_2;
 
     function __construct()
     {
@@ -14,11 +16,14 @@ class Key
 
     function make_key($file)
     {
+        $l = new LoginApi();
+        $l->createMasterKey();
+
         $this->setFile($file);
 
         $orig_contents = file_get_contents($file);
         $fp = fopen($file, "wb");
-        fwrite($fp, $orig_contents . "key:" . $this->getMasterKey());
+        fwrite($fp, $orig_contents . "key:" . $l->returnMasterKey());
         fclose($fp);
         return "<a href='class/make.php?id=". $this->getFile() ."'>Descargar archivo</a>";
     }

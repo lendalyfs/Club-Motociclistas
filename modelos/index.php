@@ -1,8 +1,12 @@
 <?php
 session_start();
+include 'class/login.php';
+
 if (isset($_SESSION["token"]) && isset($_SESSION["ytrfvbnjjhgfgb"]) ) {
 	header("Location: panel.php");
 }
+
+$l = new LoginApi();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,9 +25,10 @@ if (isset($_SESSION["token"]) && isset($_SESSION["ytrfvbnjjhgfgb"]) ) {
 	<!-- scripts -->
 	<script type="text/javascript" src="js/jquery-1.11.3-jquery.min.js"></script>
 	<script type="text/javascript" src="js/validation.min.js"></script>
+	<script src='https://www.google.com/recaptcha/api.js'></script>
 	<!-- ... -->
 </head>
-<body class="page-brand" onunload="javascript:logout()">
+<body class="page-brand">
 	<header class="header header-brand ui-header">
 		<span class="header-logo">Modelos y pruebas de software</span>
 	</header>
@@ -62,6 +67,19 @@ if (isset($_SESSION["token"]) && isset($_SESSION["ytrfvbnjjhgfgb"]) ) {
 												</div>
 											</div>
 										</div>
+										<?php
+										if ($l->showCaptcha()) {
+										?>
+										<div class="form-group form-group-label">
+											<div class="row">
+												<div class="col-md-10 col-md-push-1">
+													<div class="g-recaptcha" id="html_element" data-sitekey="6LeJJgoUAAAAABylX1ykCGCc6xKYlKwxfz2UP-Of"></div>
+												</div>
+											</div>
+										</div>
+										<?php
+										}
+										?>
 										<div class="form-group">
 											<div class="row">
 												<div class="col-md-10 col-md-push-1">
@@ -76,7 +94,7 @@ if (isset($_SESSION["token"]) && isset($_SESSION["ytrfvbnjjhgfgb"]) ) {
 							</div>
 						</div>
 						<div class="clearfix">
-							<p class="margin-no-top pull-left"><a class="btn btn-flat btn-brand waves-attach" href="recover.php">Recuperar contraseña</a></p>
+							<p class="margin-no-top pull-left"><a class="btn btn-flat btn-brand waves-attach" href="recover.php">¿No puedes acceder?</a></p>
 							<p class="margin-no-top pull-right"><a class="btn btn-flat btn-brand waves-attach" href="javascript:void(0)">¿Necesitas ayuda?</a></p>
 						</div>
 					</section>
@@ -95,11 +113,6 @@ if (isset($_SESSION["token"]) && isset($_SESSION["ytrfvbnjjhgfgb"]) ) {
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/project.min.js"></script>
 	<script type="text/javascript">
-	function logout() {
-		alert('Saliendo');
-	}
-	</script>
-	<script type="text/javascript">
 		$('document').ready(function() {
 			/* validation */
 			$("#login-form").validate({
@@ -114,7 +127,7 @@ if (isset($_SESSION["token"]) && isset($_SESSION["ytrfvbnjjhgfgb"]) ) {
 				messages:
 				{
 					ui_login_password:{
-						required: "Introduce un contraseña"
+						required: "Introduce tu contraseña"
 					},
 					ui_login_username: "Introduce tu nombre de Usuario",
 				},
@@ -144,6 +157,7 @@ if (isset($_SESSION["token"]) && isset($_SESSION["ytrfvbnjjhgfgb"]) ) {
 								$("#error").html('<div class="alert alert-danger"> &nbsp; '+response+'</div>');
 								$("#btn-login").html('&nbsp; Iniciar Sesión');
 							});
+							setTimeout(' window.location.reload(); ', 3000);
 						}
 					}
 				});

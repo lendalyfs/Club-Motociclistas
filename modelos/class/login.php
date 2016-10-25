@@ -13,6 +13,7 @@ class LoginApi
     private $pass;
     private $response;
     private $master_key;
+    private $date_end;
 
     protected $expected = array();
 
@@ -36,6 +37,48 @@ class LoginApi
         $this->setMasterKey("a05ac87e074e841c4c3ce1631523e4c314d1806e6b32696b2a5466c47cb387e5");
     }
 
+    // Una vez que el user ingresa se actualiza la bandera
+    function setSecondTime() {
+      try {
+          $stmt = $this->conn->prepare("UPDATE login_user SET first_type = 0 WHERE user_id = 1 ;");
+          $stmt->execute();
+      } catch (PDOException $e) {
+          echo $e->getMessage();
+      }
+    }
+
+    // Es la primer vez en el sistema?
+    function isFirstTime() {
+      $result = $this->conn->query("SELECT first_type FROM login_user WHERE user_id = 1;")->fetchAll();
+      return $result[0]["first_type"];
+    }
+
+    // Debe mostrar el captcha?
+    function showCaptcha() {
+      $result = $this->conn->query("SELECT intents FROM login_user WHERE user_id = 1;")->fetchAll();
+      if ($result[0]["intents"] >= 2) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    function returnMasterKey() {
+      $result = $this->conn->query("SELECT tmp_key FROM login_user WHERE user_id = 1;")->fetchAll();
+      return $result[0]["tmp_key"];
+    }
+
+    function createMasterKey() {
+      try {
+          $key = hash("sha256", rand(81099, 810999));
+          $stmt = $this->conn->prepare("UPDATE login_user SET tmp_key = :hash WHERE user_id = 1 ;");
+          $stmt->bindValue(":hash", $key, PDO::PARAM_STR );
+          $stmt->execute();
+      } catch (PDOException $e) {
+          echo $e->getMessage();
+      }
+    }
+
     // Devuelve el numero de datos obtenido
     function getNumberData($user, $pass) {
         $result = $this->conn->query("SELECT * FROM users WHERE email = '" . $user . "' and password  = '" . $pass . "';")->fetchAll();
@@ -57,7 +100,7 @@ class LoginApi
             } catch (PDOException $e) {
                 echo $e->getMessage();
             }
-        } elseif ($intents == 3) {
+        } elseif ($intents == 2) {
             // Si intentes == 3, verifica si la cuenta esta bloqueada, si no la bloquea, si esta bloqueada no hace nada
             if (!$this->isLocked(1)) {
                 try {
@@ -107,7 +150,7 @@ class LoginApi
         $this->setIntentLogin();
 
         if ($this->isLocked(1)) {
-            $val = $this->response[6];
+            $val = $this->response[6] . ". <br> " . $this->date_end;
         } else {
             $val = ($this->getNumberDataError() == 1) ? $this->getSuccessError() : $this->response[1];
         }
@@ -128,7 +171,7 @@ class LoginApi
         $blockDate = $result[0]["date_end"];
 
         if ($blockDate) {
-            echo "Fecha de desbloqueo:" . $result[0]["date_end"] . ". ";
+            $this->date_end = "Fecha de desbloqueo: <strong>" . $result[0]["date_end"] . "</strong>.";
             return true;
         } else {
             return false;
@@ -159,7 +202,7 @@ class LoginApi
     // Desbloquea la cuenta del usuario
     function unlockAccount($user) {
         try {
-            $stmt = $this->conn->prepare("UPDATE login_user SET intents = 0, date_start = null, date_end = null  WHERE user_id = (SELECT id FROM users WHERE email = '". $user ."');");
+            $stmt = $this->conn->prepare("UPDATE login_user SET intents = 0, date_start = null, date_end = null  WHERE user_id = 1;");
             $stmt->execute();
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -246,8 +289,6 @@ class LoginApi
         $this->master_key = $master_key;
     }
 
-
-
     /**
      * Sets the value of password.
      *
@@ -262,7 +303,6 @@ class LoginApi
         return $this;
     }
 }
-
 if (isset($_POST['btn-login'])) {
     if (!empty($_POST['ui_login_password']) || !empty($_POST['ui_login_username'])) {
         $password = htmlentities($_POST['ui_login_password']);
@@ -271,9 +311,17 @@ if (isset($_POST['btn-login'])) {
         $user = htmlentities($_POST['ui_login_username']);
         $user = hash('sha256', $user);
 
-        $l = new LoginApi($user, $password);
+        $l = new LoginApi();
 
-        echo $l->getLoginErrors($user, $password);
+        if (isset($_POST['g-recaptcha-response'])) {
+          if ( !empty($_POST['g-recaptcha-response']) && $_POST['g-recaptcha-response'] !== null ) {
+            echo $l->getLoginErrors($user, $password);
+          } else {
+            echo "Captcha incorrecto";
+          }
+        } else {
+          echo $l->getLoginErrors($user, $password);
+        }
 
     } else {
         if (empty($_POST['ui_login_password'])) {
@@ -285,3 +333,12 @@ if (isset($_POST['btn-login'])) {
         }
     }
 }
+/*
+$l = new LoginApi();
+if ($l->isFirstTime()) {
+  echo "Primera vez";
+  $l->setSecondTime();
+} else {
+  echo "Bienvenido de nuevo";
+}
+*/

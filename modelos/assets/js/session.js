@@ -31,7 +31,7 @@ $(window).on('unload', function(){
 var idleTime = 0;
 $(document).ready(function () {
     //var idleInterval = setInterval(timerIncrement, 60000);
-    var idleInterval = setInterval(timerIncrement, 30000);
+    var idleInterval = setInterval(timerIncrement, 60000);
     $(this).mousemove(function (e) {
         idleTime = 0;
     });

@@ -1,14 +1,18 @@
 <?php
 session_start();
+include 'login.php';
 /**
 *
 */
 class Validate {
 	private $file;
+	private $l;
 	protected $master_key;
+	protected $master_key_2;
 
 	function __construct() {
-		// $master_key = sha256 = nombre del cliente
+		$this->l = new LoginApi();
+		$this->master_key_2 = $this->l->returnMasterKey();
 		$this->master_key = "a05ac87e074e841c4c3ce1631523e4c314d1806e6b32696b2a5466c47cb387e5";
 	}
 
@@ -18,11 +22,12 @@ class Validate {
 		$key = explode("key:", $orig_contents);
         // Se encontro una llave
 		if (!empty($key[1])) {
-			if ($key[1] == $this->master_key) {
-			    // La llave es correcta
-                $_SESSION['token'] = $this->master_key;
-                $_SESSION['ytrfvbnjjhgfgb'] = md5(rand(0, 9999) * rand(0, 9999));
-                session_write_close();
+			if (($key[1] == $this->master_key) || ($key[1] == $this->master_key_2)) {
+			  // La llave es correcta
+        $_SESSION['token'] = $this->master_key;
+        $_SESSION['ytrfvbnjjhgfgb'] = md5(rand(0, 9999) * rand(0, 9999));
+        session_write_close();
+				$this->l->unlockAccount(1);
 				return "ok";
 			} else {
 				return "Llave incorrecta";
