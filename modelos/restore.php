@@ -58,7 +58,7 @@ if (isset($_SESSION["token"]) && isset($_SESSION["ytrfvbnjjhgfgb"]) ) {
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-10 col-md-push-1">
-                                                <button type="submit" id="btn-login" name="btn-login" class="btn btn-block btn-default waves-attach waves-light"> &nbsp; Crear contraseña</button>
+                                                <button type="submit" id="btn-login" name="btn-login" class="btn btn-block btn-default waves-attach waves-light"> &nbsp; Cambiar contraseña</button>
                                             </div>
                                         </div>
                                     </div>
@@ -70,7 +70,7 @@ if (isset($_SESSION["token"]) && isset($_SESSION["ytrfvbnjjhgfgb"]) ) {
                     </div>
                     <div class="clearfix">
                         <p class="margin-no-top pull-left"><a class="btn btn-flat btn-brand waves-attach" href="panel.php">Volver al panel</a></p>
-                        <p class="margin-no-top pull-right"><a class="btn btn-flat btn-brand waves-attach" href="javascript:void(0)">¿Necesitas ayuda?</a></p>
+                        <p class="margin-no-top pull-right"><a class="btn btn-flat btn-brand waves-attach" href="manual.php">¿Necesitas ayuda?</a></p>
                     </div>
                 </section>
             </div>
@@ -102,7 +102,7 @@ if (isset($_SESSION["token"]) && isset($_SESSION["ytrfvbnjjhgfgb"]) ) {
             messages:
             {
                 ui_login_password:{
-                    required: "Introduce un contraseña"
+                    required: "Introduce una contraseña"
                 },
                 ui_login_password_2: "Confirma tu contraseña",
             },
@@ -123,7 +123,7 @@ if (isset($_SESSION["token"]) && isset($_SESSION["ytrfvbnjjhgfgb"]) ) {
                     if (response == "ok") {
                         $("#error").fadeIn(1000, function() {
                             $("#error").html('<div class="alert alert-success"> <img src="images/btn-ajax-loader.gif" /> &nbsp; contraseña reestablecida</div>');
-                            $("#btn-login").html('&nbsp; Entrando...');
+                            $("#btn-login").html('&nbsp; Cambiando...');
                         });
                         //$("#btn-login").html('&nbsp; Entrando...');
                         setTimeout(' window.location.href = "index.php"; ',4000);
@@ -131,7 +131,7 @@ if (isset($_SESSION["token"]) && isset($_SESSION["ytrfvbnjjhgfgb"]) ) {
                     else {
                         $("#error").fadeIn(1000, function() {
                             $("#error").html('<div class="alert alert-danger"> &nbsp; '+response+'</div>');
-                            $("#btn-login").html('&nbsp; Iniciar Sesión');
+                            $("#btn-login").html('&nbsp; Volver a intentar');
                         });
                     }
                 }

@@ -35,13 +35,32 @@ if (isset($_SESSION["token"]) && isset($_SESSION["ytrfvbnjjhgfgb"]) ) {
 							<div class="card-main">
 								<div class="card-header">
 									<div class="card-inner">
-										<h1 class="card-heading">Sube una image/foto</h1>
+										<h1 class="card-heading">Sube una imagen/foto</h1>
 									</div>
 								</div>
 								<div class="card-inner">
 									<p>
 										Sube una foto o imagen para crear tu archivo cifrado. En caso de olvidar su contraseña puede usar este archivo
 									</p>
+									<div class="tile-wrap">
+										<div class="tile tile-collapse tile-red">
+											<div data-target="#ui_tile_example_red" data-toggle="tile">
+												<div class="tile-inner">
+													<div class="text-overflow">¡Aviso importante!</div>
+												</div>
+											</div>
+											<div class="tile-active-show collapse" id="ui_tile_example_red">
+												<div class="tile-sub">
+													<p>¡Atención! si crea este nuevo archivo, todos los archivos anteriores dejaran de funcionar.</p>
+												</div>
+												<div class="tile-footer">
+													<div class="tile-footer-btn pull-left">
+														<a class="btn btn-flat waves-attach" data-toggle="tile" href="#ui_tile_example_red"><span class="icon">check</span>&nbsp;Enterado</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
 									<form action="class/recover.php" method="POST" class="dropzone needsclick" id="demo-upload">
 										<p class="text-center">
 											<div id="dropzone">
@@ -65,7 +84,7 @@ if (isset($_SESSION["token"]) && isset($_SESSION["ytrfvbnjjhgfgb"]) ) {
 						</div>
 						<div class="clearfix">
 							<p class="margin-no-top pull-left"><a class="btn btn-flat btn-brand waves-attach" href="panel.php">Volver al panel</a></p>
-							<p class="margin-no-top pull-right"><a class="btn btn-flat btn-brand waves-attach" href="javascript:void(0)">¿Necesitas ayuda?</a></p>
+							<p class="margin-no-top pull-right"><a class="btn btn-flat btn-brand waves-attach" href="manual.php">¿Necesitas ayuda?</a></p>
 						</div>
 					</section>
 				</div>

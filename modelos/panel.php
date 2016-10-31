@@ -80,12 +80,12 @@ if (isset($_SESSION["token"]) && isset($_SESSION["ytrfvbnjjhgfgb"]) ) {
                                     </div>
                                     <div class="form-group">
                                         <a type="submit" href="restore.php" id="btn-login" name="btn-login" class="btn  btn-info waves-attach waves-light">
-                                            Cambiar contrasena
+                                            Cambiar contraseña
                                         </a>
                                     </div>
                                     <div class="form-group">
                                         <a type="submit" href="logout.php" id="btn-login" name="btn-login" class="btn  btn-danger waves-attach waves-light">
-                                            Cerrar Sesion
+                                            Cerrar Sesión
                                         </a>
                                     </div>
                                     <div id="error">

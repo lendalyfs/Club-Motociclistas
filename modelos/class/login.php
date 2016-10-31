@@ -40,7 +40,7 @@ class LoginApi
     // Una vez que el user ingresa se actualiza la bandera
     function setSecondTime() {
       try {
-          $stmt = $this->conn->prepare("UPDATE login_user SET first_type = 0 WHERE user_id = 1 ;");
+          $stmt = $this->conn->prepare("UPDATE login_user SET first_type = 0 WHERE users_id = 1 ;");
           $stmt->execute();
       } catch (PDOException $e) {
           echo $e->getMessage();
@@ -49,13 +49,13 @@ class LoginApi
 
     // Es la primer vez en el sistema?
     function isFirstTime() {
-      $result = $this->conn->query("SELECT first_type FROM login_user WHERE user_id = 1;")->fetchAll();
+      $result = $this->conn->query("SELECT first_type FROM login_user WHERE users_id = 1;")->fetchAll();
       return $result[0]["first_type"];
     }
 
     // Debe mostrar el captcha?
     function showCaptcha() {
-      $result = $this->conn->query("SELECT intents FROM login_user WHERE user_id = 1;")->fetchAll();
+      $result = $this->conn->query("SELECT intents FROM login_user WHERE users_id = 1;")->fetchAll();
       if ($result[0]["intents"] >= 2) {
         return true;
       } else {
@@ -64,14 +64,14 @@ class LoginApi
     }
 
     function returnMasterKey() {
-      $result = $this->conn->query("SELECT tmp_key FROM login_user WHERE user_id = 1;")->fetchAll();
+      $result = $this->conn->query("SELECT tmp_key FROM login_user WHERE users_id = 1;")->fetchAll();
       return $result[0]["tmp_key"];
     }
 
     function createMasterKey() {
       try {
           $key = hash("sha256", rand(81099, 810999));
-          $stmt = $this->conn->prepare("UPDATE login_user SET tmp_key = :hash WHERE user_id = 1 ;");
+          $stmt = $this->conn->prepare("UPDATE login_user SET tmp_key = :hash WHERE users_id = 1 ;");
           $stmt->bindValue(":hash", $key, PDO::PARAM_STR );
           $stmt->execute();
       } catch (PDOException $e) {
@@ -94,7 +94,7 @@ class LoginApi
         // Si intents == 0, lo actualiza a 1 y coloca la fecha de inicio
         if ($intents == 0) {
             try {
-                $stmt = $this->conn->prepare("UPDATE login_user SET date_start = :date1, intents = 1 WHERE user_id = 1 ;");
+                $stmt = $this->conn->prepare("UPDATE login_user SET date_start = :date1, intents = 1 WHERE users_id = 1 ;");
                 $stmt->bindValue(":date1", $date, PDO::PARAM_STR );
                 $stmt->execute();
             } catch (PDOException $e) {
@@ -105,7 +105,7 @@ class LoginApi
             if (!$this->isLocked(1)) {
                 try {
                     //  Query para actualizar + fecha de bloqueo
-                    $stmt = $this->conn->prepare("UPDATE login_user SET date_start = :date1, date_end = :date2  WHERE user_id = 1 ;");
+                    $stmt = $this->conn->prepare("UPDATE login_user SET date_start = :date1, date_end = :date2  WHERE users_id = 1 ;");
                     $stmt->bindValue(":date1", $date, PDO::PARAM_STR);
                     $stmt->bindValue(":date2", $this->createDateBlock(), PDO::PARAM_STR);
                     $stmt->execute();
@@ -117,7 +117,7 @@ class LoginApi
             // Actualiza el intents
             $intents++;
             try {
-                $stmt = $this->conn->prepare("UPDATE login_user SET intents = :intents WHERE user_id = 1 ;");
+                $stmt = $this->conn->prepare("UPDATE login_user SET intents = :intents WHERE users_id = 1 ;");
                 $stmt->bindValue(":intents", $intents, PDO::PARAM_INT);
                 $stmt->execute();
             } catch  (PDOException $e) {
@@ -136,7 +136,7 @@ class LoginApi
 
     // Devuelve el numero de intentos de inicio de sesion
     function getIntentsLogin($user) {
-        $result = $this->conn->query("SELECT intents FROM login_user WHERE user_id = $user;")->fetchAll();
+        $result = $this->conn->query("SELECT intents FROM login_user WHERE users_id = $user;")->fetchAll();
         return $result[0]["intents"];
     }
 
@@ -167,7 +167,7 @@ class LoginApi
 
     // Extrae la fecha de bloqueo, si existe, la cuenta esta bloqueada
     function isLocked($user) {
-        $result = $this->conn->query("SELECT date_end FROM login_user WHERE user_id =  $user ;")->fetchAll();
+        $result = $this->conn->query("SELECT date_end FROM login_user WHERE users_id =  $user ;")->fetchAll();
         $blockDate = $result[0]["date_end"];
 
         if ($blockDate) {
@@ -183,7 +183,7 @@ class LoginApi
         $actualDate = date('Y-m-d H:i:s');
         $actualDate = strtotime($actualDate);
 
-        $result = $this->conn->query("SELECT date_end FROM login_user WHERE user_id = (SELECT id FROM users WHERE email = '" . $user . "');")->fetchAll();
+        $result = $this->conn->query("SELECT date_end FROM login_user WHERE users_id = (SELECT id FROM users WHERE email = '" . $user . "');")->fetchAll();
 
         $blockDate = $result[0]["date_end"];
         $blockDate = strtotime($blockDate);
@@ -202,7 +202,7 @@ class LoginApi
     // Desbloquea la cuenta del usuario
     function unlockAccount($user) {
         try {
-            $stmt = $this->conn->prepare("UPDATE login_user SET intents = 0, date_start = null, date_end = null  WHERE user_id = 1;");
+            $stmt = $this->conn->prepare("UPDATE login_user SET intents = 0, date_start = null, date_end = null  WHERE users_id = 1;");
             $stmt->execute();
         } catch (PDOException $e) {
             echo $e->getMessage();

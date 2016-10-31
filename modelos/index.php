@@ -95,7 +95,7 @@ $l = new LoginApi();
 						</div>
 						<div class="clearfix">
 							<p class="margin-no-top pull-left"><a class="btn btn-flat btn-brand waves-attach" href="recover.php">¿No puedes acceder?</a></p>
-							<p class="margin-no-top pull-right"><a class="btn btn-flat btn-brand waves-attach" href="javascript:void(0)">¿Necesitas ayuda?</a></p>
+							<p class="margin-no-top pull-right"><a class="btn btn-flat btn-brand waves-attach" href="manual.php">¿Necesitas ayuda?</a></p>
 						</div>
 					</section>
 				</div>
