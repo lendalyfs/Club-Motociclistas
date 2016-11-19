@@ -8,5 +8,7 @@ use App\Http\Requests;
 
 class UsersController extends Controller
 {
-    //
+    public function null() {
+        
+    }
 }
