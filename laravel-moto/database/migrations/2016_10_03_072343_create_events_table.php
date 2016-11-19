@@ -19,8 +19,8 @@ class CreateEventsTable extends Migration
             $table->string('destino');
             $table->dateTime('fecha_salida');
             $table->dateTime('fecha_regreso');
-            $table->text('descripcion');
-            $table->string('foto');
+            $table->text('descripcion')->nullable();
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }
