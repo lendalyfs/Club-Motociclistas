@@ -12,10 +12,6 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-    <link href="/css/bootstrap.css" rel="stylesheet">
-    <link href="/css/font-awesome.css" rel="stylesheet">
-    <link href="/css/bootstrap-social.css" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -85,10 +81,5 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
-    <script src="/js/jquery.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/jquery.backstretch.min.js"></script>
-    <script src="/js/retina-1.1.0.min.js"></script>
-    <script src="/js/scripts.js"></script>
 </body>
 </html>
